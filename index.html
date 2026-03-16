@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sauhrdam '26 VIP Pass</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    /* BASE VIBES */
+    body, html {
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      display: flex; justify-content: center; align-items: center;
+      flex-direction: column;
+    }
+
+    /* TRIPPY BACKGROUND ANIMATION */
+    .bg-animation {
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, #4c1d95 0%, #000 40%, #000 100%);
+      opacity: 0.3;
+      z-index: 0;
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } 100% { transform: rotate(360deg) scale(1); } }
+
+    /* LAYOUT & UTILITIES */
+    .container { z-index: 10; width: 100%; max-width: 600px; padding: 0 20px; text-align: center; box-sizing: border-box; }
+    .page { display: none; animation: fadeIn 0.8s ease forwards; }
+    .page.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* TYPOGRAPHY & GRADIENTS */
+    .gradient-text {
+      background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4);
+      -webkit-background-clip: text; color: transparent;
+      font-weight: 900; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .h1-massive { font-size: clamp(3rem, 10vw, 5rem); line-height: 1.1; margin: 0; }
+    .subtitle { color: #d1d5db; font-size: 1.2rem; margin-bottom: 30px; }
+    .neon-blue { background: linear-gradient(to right, #22d3ee, #3b82f6); -webkit-background-clip: text; color: transparent; }
+
+    /* BUTTONS */
+    .btn {
+      padding: 15px 30px; border: none; border-radius: 50px;
+      font-size: 1.1rem; font-weight: bold; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-white { background: #fff; color: #000; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+    .btn-gradient { background: linear-gradient(to right, #ec4899, #9333ea); color: #fff; margin-top: 20px; }
+    .btn-glass { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); margin-top: 30px;}
+    .btn:hover { transform: scale(1.05); }
+
+    /* GLASSMORPHISM CARD (PAGE 2 & 4) */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px; padding: 30px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      position: relative; overflow: hidden;
+      margin: 0 auto;
+    }
+    .list-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-align: left;}
+    
+    /* INPUT */
+    input {
+      width: 100%; max-width: 300px; padding: 15px 20px;
+      background: #111; border: 2px solid #333; border-radius: 15px;
+      color: #fff; font-size: 1.2rem; text-align: center; box-sizing: border-box;
+    }
+    input:focus { outline: none; border-color: #ec4899; }
+
+    /* FOOTER */
+    .footer { position: absolute; bottom: 15px; width: 100%; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 4px; z-index: 50; pointer-events: none;}
+  </style>
+</head>
+<body>
+
+  <audio id="bg-audio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="bg-animation"></div>
+
+  <div class="container">
+    
+    <div id="page1" class="page active">
+      <p style="color: #22d3ee; letter-spacing: 3px; font-weight: bold; font-size: 0.9rem;">THE OFFICIAL FAREWELL</p>
+      <h1 class="gradient-text h1-massive">SAUHRDAM</h1>
+      <p class="subtitle">It's not just a goodbye. It's a movie. 🎬✨</p>
+      <button class="btn btn-white" onclick="goToPage(2)">Enter the Vibe 🎧</button>
+    </div>
+
+    <div id="page2" class="page">
+      <div class="glass-card">
+        <h2 class="neon-blue" style="font-size: 2rem; margin-top: 0; text-transform: uppercase;">The Lineup 🔥</h2>
+        <div class="list-item"><span>💃</span> Dance Performances</div>
+        <div class="list-item"><span>🎤</span> Live Singing</div>
+        <div class="list-item"><span>🎮</span> Interactive Games</div>
+        <div class="list-item"><span>🎁</span> Gift Distribution</div>
+        <div class="list-item"><span>🍕</span> Food & Vibes</div>
+        
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+          <div style="flex: 1; background: rgba(236, 72, 153, 0.1); padding: 10px; border-radius: 12px; border: 1px solid rgba(236,72,153,0.3);">
+            <p style="color: #f9a8d4; font-size: 0.7rem; margin:0;">WHEN</p>
+            <strong>Mar 22nd</strong><br><span style="font-size:0.8rem">2:00 PM</span>
+          </div>
+          <div style="flex: 1; background: rgba(34, 211, 238, 0.1); padding: 10px; border-radius: 12px; border: 1px solid rgba(34,211,238,0.3);">
+            <p style="color: #67e8f9; font-size: 0.7rem; margin:0;">WHERE</p>
+            <strong>Seminar Hall</strong><br><span style="font-size:0.8rem">MME Bldg</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-white" style="margin-top: 20px; width: 100%; max-width: 300px;" onclick="goToPage(3)">Claim Your Invite 🎟️</button>
+    </div>
+
+    <div id="page3" class="page">
+      <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Who are we honoring? 👀</h2>
+      <input type="text" id="userNameInput" placeholder="Drop your name..." />
+      <br>
+      <button class="btn btn-gradient" onclick="generatePass()">Generate Pass 💌</button>
+    </div>
+
+    <div id="page4" class="page">
+      <div id="capture-card" style="padding: 10px;">
+        <div class="glass-card">
+          <p style="color: #22d3ee; letter-spacing: 3px; font-weight: bold; font-size: 0.8rem; margin: 0 0 10px 0;">SAUHRDAM '26</p>
+          <h1 id="display-name" class="gradient-text" style="font-size: 2.5rem; word-break: break-word; line-height: 1;">NAME</h1>
+          <hr style="border-color: rgba(255,255,255,0.2); margin: 20px 0;">
+          <p style="font-size: 1.1rem; line-height: 1.5; color: #e5e7eb;">Your VIP pass to the biggest night of the year. The Department of Chemistry won't be the same without you! 🧪✨</p>
+          <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.7rem; color: #9ca3af; margin-top: 20px;">
+            <span>MAR 22 // 2PM</span>
+            <span>MME SEMINAR HALL</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-glass" onclick="downloadImage()">Save to Camera Roll 📸</button>
+    </div>
+
+  </div>
+
+  <div class="footer">DEVELOPED BY UTTAM</div>
+
+  <script>
+    // Handles playing the music and switching pages smoothly
+    function goToPage(pageNumber) {
+      if (pageNumber === 2) {
+        let audio = document.getElementById("bg-audio");
+        audio.volume = 0.5;
+        audio.play().catch(e => console.log("Audio play blocked by browser until user interaction."));
+      }
+
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      // Show target page
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    // Handles grabbing the input name and moving to the final card
+    function generatePass() {
+      let name = document.getElementById("userNameInput").value.trim();
+      if (name === "") {
+        alert("Please enter a name!");
+        return;
+      }
+      document.getElementById("display-name").innerText = name;
+      goToPage(4);
+    }
+
+    // Handles taking the screenshot of the glass card
+    function downloadImage() {
+      let name = document.getElementById("userNameInput").value.trim() || "Guest";
+      let card = document.getElementById("capture-card");
+      
+      html2canvas(card, {
+        backgroundColor: '#0a0a0a',
+        scale: 2 // High resolution
+      }).then(canvas => {
+        let link = document.createElement('a');
+        link.download = name + '_Sauhrdam_Invite.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }).catch(err => {
+        console.error("Error saving image:", err);
+        alert("Oops! Couldn't save the image.");
+      });
+    }
+  </script>
+</body>
+</html>
