@@ -28,6 +28,16 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     .gradient-text { background: linear-gradient(to right, #ec4899, #a855f7, #06b6d4); -webkit-background-clip: text; color: transparent; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; }
+    
+    /* NEW GLOWING TEXT FOR THE DOWNLOADABLE CARD BUG FIX */
+    .neon-glow-name {
+      color: #ffffff;
+      text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899, 0 0 40px #a855f7;
+      font-weight: 900; 
+      text-transform: uppercase; 
+      margin-bottom: 5px;
+    }
+
     .h1-massive { font-size: clamp(3rem, 10vw, 5rem); line-height: 1.1; margin: 0; }
     .subtitle { color: #d1d5db; font-size: 1.2rem; margin-bottom: 30px; }
     .neon-blue { background: linear-gradient(to right, #22d3ee, #3b82f6); -webkit-background-clip: text; color: transparent; }
@@ -38,13 +48,12 @@
     .btn-glass { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); margin-top: 30px;}
     .btn:hover { transform: scale(1.05); }
 
-    .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 30px; box-shadow: 0 0 40px rgba(0,0,0,0.5); position: relative; overflow: hidden; margin: 0 auto; }
+    .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 30px; box-shadow: 0 0 40px rgba(0,0,0,0.5); position: relative; overflow: hidden; margin: 0 auto; }
     .list-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-align: left;}
     
     input { width: 100%; max-width: 300px; padding: 15px 20px; background: #111; border: 2px solid #333; border-radius: 15px; color: #fff; font-size: 1.2rem; text-align: center; box-sizing: border-box; }
     input:focus { outline: none; border-color: #ec4899; }
 
-    /* NEW STYLES FOR PERFORMANCE BUTTONS */
     .options-grid { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; max-width: 350px; margin-left: auto; margin-right: auto;}
     .perf-btn { 
       background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); 
@@ -52,7 +61,6 @@
       transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;
     }
     .perf-btn:hover { background: rgba(255,255,255,0.1); }
-    /* The glowing effect when a button is selected */
     .perf-btn.selected { background: rgba(236, 72, 153, 0.2); border-color: #ec4899; box-shadow: 0 0 15px rgba(236,72,153,0.4); transform: scale(1.05); }
 
     .footer { position: absolute; bottom: 15px; width: 100%; text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 4px; z-index: 50; pointer-events: none;}
@@ -71,7 +79,7 @@
     <div id="page1" class="page active">
       <p style="color: #22d3ee; letter-spacing: 3px; font-weight: bold; font-size: 0.9rem;">THE OFFICIAL FAREWELL</p>
       <h1 class="gradient-text h1-massive">SAUHRDAM</h1>
-      <p class="subtitle">It's not just a goodbye. It's a movie. 🎬✨</p>
+      <p class="subtitle">It’s not a goodbye… it’s the last scene before the credits roll. ✨</p>
       <button class="btn btn-white" onclick="goToPage(2)">Enter the Vibe 🎧</button>
     </div>
 
@@ -87,7 +95,7 @@
         <div style="display: flex; gap: 10px; margin-top: 20px;">
           <div style="flex: 1; background: rgba(236, 72, 153, 0.1); padding: 10px; border-radius: 12px; border: 1px solid rgba(236,72,153,0.3);">
             <p style="color: #f9a8d4; font-size: 0.7rem; margin:0;">WHEN</p>
-            <strong>Mar 22nd</strong><br><span style="font-size:0.8rem">2:00 PM</span>
+            <strong>Mar 22nd</strong><br><span style="font-size:0.8rem">1:00 PM Onwards</span>
           </div>
           <div style="flex: 1; background: rgba(34, 211, 238, 0.1); padding: 10px; border-radius: 12px; border: 1px solid rgba(34,211,238,0.3);">
             <p style="color: #67e8f9; font-size: 0.7rem; margin:0;">WHERE</p>
@@ -123,11 +131,17 @@
       <div id="capture-card" style="padding: 10px;">
         <div class="glass-card">
           <p style="color: #22d3ee; letter-spacing: 3px; font-weight: bold; font-size: 0.8rem; margin: 0 0 10px 0;">SAUHRDAM '26</p>
-          <h1 id="display-name" class="gradient-text" style="font-size: 2.5rem; word-break: break-word; line-height: 1;">NAME</h1>
+          
+          <h1 id="display-name" class="neon-glow-name" style="font-size: 2.5rem; word-break: break-word; line-height: 1;">NAME</h1>
+          
           <hr style="border-color: rgba(255,255,255,0.2); margin: 20px 0;">
-          <p style="font-size: 1.1rem; line-height: 1.5; color: #e5e7eb;">Your VIP pass to the biggest night of the year. The Department of Chemistry won't be the same without you! 🧪✨</p>
-          <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.7rem; color: #9ca3af; margin-top: 20px;">
-            <span>MAR 22 // 2PM</span>
+          
+          <p style="font-size: 1.1rem; line-height: 1.5; color: #e5e7eb;">A special invitation just for you to join us for a memorable celebration at the Department of Chemistry. We wouldn’t want to do it without you! 🧪✨</p>
+          
+          <p id="display-performance" style="font-size: 0.9rem; color: #f9a8d4; font-weight: bold; margin-top: 15px; text-transform: uppercase; letter-spacing: 1px;"></p>
+
+          <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.7rem; color: #9ca3af; margin-top: 25px;">
+            <span>MAR 22 // 1PM</span>
             <span>MME SEMINAR HALL</span>
           </div>
         </div>
@@ -152,32 +166,23 @@
       document.getElementById('page' + pageNumber).classList.add('active');
     }
 
-    // Move from Name Input to Performance Page
     function goToPerformancePage() {
       let name = document.getElementById("userNameInput").value.trim();
       if (name === "") {
         alert("Please drop your name first!");
         return;
       }
-      goToPage(4); // Go to the new performance page
+      goToPage(4); 
     }
 
-    // Handle the glowing button selection
     function selectPerformance(btnElement, type) {
       chosenPerformance = type;
-      
-      // Remove 'selected' glow from all buttons
       let allBtns = document.querySelectorAll('.perf-btn');
       allBtns.forEach(btn => btn.classList.remove('selected'));
-      
-      // Add glow to the one they just clicked
       btnElement.classList.add('selected');
-      
-      // Show the final submit button
       document.getElementById("finalSubmitBtn").style.display = "inline-block";
     }
 
-    // Final send to Google Sheets
     function generatePass() {
       let name = document.getElementById("userNameInput").value.trim();
       let btn = document.getElementById("finalSubmitBtn");
@@ -185,8 +190,8 @@
       btn.innerText = "Generating... ⏳";
       btn.disabled = true;
 
-      // 🚨 DO NOT FORGET TO PASTE YOUR SHEETDB API LINK HERE 🚨
-      let sheetdbUrl = "https://sheetdb.io/api/v1/3ptkpvh7l68tq"; 
+      // 🚨 REMEMBER TO PUT YOUR ACTUAL SHEETDB URL HERE BEFORE SHARING 🚨
+      let sheetdbUrl = "YOUR_SHEETDB_API_URL"; 
 
       fetch(sheetdbUrl, {
         method: "POST",
@@ -204,11 +209,14 @@
       .then(response => response.json())
       .then(data => {
         document.getElementById("display-name").innerText = name;
-        goToPage(5); // Show final card!
+        // Inject the performance text onto the final card
+        document.getElementById("display-performance").innerText = "Performing: " + chosenPerformance;
+        goToPage(5); 
       })
       .catch(error => {
         console.error("Database error, moving to card anyway.", error);
         document.getElementById("display-name").innerText = name;
+        document.getElementById("display-performance").innerText = "Performing: " + chosenPerformance;
         goToPage(5);
       });
     }
